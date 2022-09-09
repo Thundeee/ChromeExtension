@@ -22,6 +22,8 @@ function observerMain() {
 
   const parent = document.querySelector(".battle-log");
   const correctChild = parent.querySelector(".message-log");
+  const parentText = document.querySelector(".battle-log-add");
+            const chatBox = parentText.querySelectorAll(".textbox")[1];
 
   const observer = new MutationObserver(function (mutations_list) {
     mutations_list.forEach(function (mutation) {
@@ -38,9 +40,6 @@ function observerMain() {
             result = mutation.addedNodes[0].innerHTML;
             pkmn = result.match(/\>(.*?)\</);
             console.log(pkmn[1]);
-
-            const parentText = document.querySelector(".battle-log-add");
-            const chatBox = parentText.querySelectorAll(".textbox")[1];
 
             chatBox.innerHTML = "/weak " + pkmn[1];
 
