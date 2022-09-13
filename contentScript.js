@@ -30,8 +30,7 @@ function observerMain() {
 
   const parent = document.querySelector(".battle-log");
   const parentText = document.querySelector(".battle-log-add");
-
-  
+  let formsubmit = "";
   let chatBox = parentText.querySelectorAll(".textbox")[1];
   textBoxChecker();
 
@@ -44,8 +43,14 @@ function observerMain() {
     } else {
       console.log(chatBox)
       console.log("ChatBox found!");
+
+      formsubmit = document.querySelector(".chatbox");
+      console.log(formsubmit);
     }
   }
+
+
+
 
   let observer = new MutationObserver(function (mutations_list) {
     mutations_list.forEach(function (mutation) {
@@ -61,6 +66,7 @@ function observerMain() {
             pkmn = result.match(/\>(.*?)\</);
 
             chatBox.value = "/weak " + pkmn[1];
+            formsubmit.submit().preventDefault();
 
             console.log("enemy pokemon is " + pkmn[1]);
           }
