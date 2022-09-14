@@ -66,7 +66,10 @@ function observerMain() {
             pkmn = result.match(/\>(.*?)\</);
 
             chatBox.value = "/weak " + pkmn[1];
-            formsubmit.submit().preventDefault();
+           /* formsubmit.submit(function(event){
+              event.preventDefault();
+              console.log(formsubmit);
+            }); */
 
             console.log("enemy pokemon is " + pkmn[1]);
           }
